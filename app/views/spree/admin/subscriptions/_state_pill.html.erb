@@ -1,0 +1,11 @@
+<% state_class = {
+    active: 'active',
+    canceled: 'error',
+    pending_cancellation: 'warning',
+    inactive: 'inactive',
+    paused: 'pending'
+}[subscription.state_with_pause.to_sym] %>
+
+<span class="pill pill-<%= state_class %>">
+  <%= subscription.state_with_pause.humanize %>
+</span>

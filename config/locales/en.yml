@@ -1,0 +1,145 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  time:
+    formats:
+      human:
+  solidus_subscriptions:
+    subscription:
+      actionable_date: "Actionable Date"
+      invalid_payment_details: Invalid payment method or source
+    installment_details:
+      out_of_stock: >
+        This installment could not be processed because of insufficient
+        stock.
+      success: This installment has been processed successfully!
+      failed: This installment could not be processed
+      payment_failed: The payment for this installment failed
+
+  cart_line_items:
+    subscription_fields:
+      quantity: I want
+      quantity_suffix: items
+      interval_length: every
+      subscription_fields: Subscription Settings
+
+  spree:
+    new_subscription: New Subscription
+    admin:
+      subscriptions:
+        successfully_canceled: Subscription Canceled!
+        successfully_activated: Subscription Activated!
+        successfully_skipped: Subscription delayed until %{date}
+        successfully_paused: Subscription Paused
+        successfully_resumed: Subscription Resumed
+        actions:
+          cancel: Cancel
+          cancel_alert: "Are you sure you want to cancel this subscription?"
+          activate: Activate
+          skip: Skip One
+          pause: Pause
+          resume: Resume
+        index:
+          new_subscription: New Subscription
+        edit:
+          title: Details
+          customer: Customer
+          status: Status
+          fulfillment_status: Fulfillment Status
+          revenue: Revenue
+          interval: Interval
+          sidebar: Status
+          details: Details
+          installments: Installments
+          events: Events
+          payment: Payment
+          orders: Orders
+        new:
+          back: Back to Subscriptions List
+          title: Create a Subscription
+        form:
+          subscription: Subscription
+          subscription_line_items: Line Items
+      tab:
+        subscriptions: Subscriptions
+      installments:
+        index:
+          title: Installments
+      subscription_events:
+        index:
+          title: Events
+      subscription_orders:
+        index:
+          title: Orders
+      user:
+        subscriptions: Subscriptions
+    promotion_rule_types:
+      subscription_promotion_rule:
+        name: Subscription
+        description: Order contains a subscription
+      subscription_order_promotion_rule:
+        name: Subscription Order
+        description: Order fulfills a subscription
+
+    products:
+      cart_form:
+        quantity: I want
+        quantity_suffix: items
+        interval_length: every
+        subscription_fields: Subscription Settings
+
+  activerecord:
+    attributes:
+      solidus_subscriptions/line_item/interval_units:
+        day: Days
+        week: Weeks
+        month: Months
+        year: Years
+      solidus_subscriptions/subscription/processing_state:
+        pending: new
+        success: success
+        failed: failure
+      solidus_subscriptions/line_item:
+        _destroy: Remove?
+      solidus_subscriptions/installment:
+        created_at: Creation date
+        actionable_date: Actionable date
+        state: State
+      solidus_subscriptions/installment/state:
+        fulfilled: Fulfilled
+        unfulfilled: Unfulfilled
+      solidus_subscriptions/promotion/rules/subscription_creation_order:
+        description: Creates a subscription
+      solidus_subscriptions/promotion/rules/subscription_installment_order:
+        description: Is a subscription installment
+    models:
+      solidus_subscriptions/subscription:
+        one: Subscription
+        other: Subscriptions
+      solidus_subscriptions/installment:
+        one: Installment
+        other: Installments
+
+    errors:
+      models:
+        solidus_subscriptions/subscription:
+          attributes:
+            successive_skip_count:
+              exceeded: >
+                This subscription has exceeded the maximum configured successive
+                skip limit. It can be skipped again after the next time it is
+                processed.
+            skip_count:
+              exceeded: >
+                This subscription has exceeded the maximum configured skip
+                limit. It can no longer be skipped.
+            currency:
+              inclusion: "is not a valid currency code"
+            payment_source:
+              not_owned_by_user: "does not belong to the user associated with the subscription"
+            paused:
+              cannot_skip: "cannot skip a subscription which is paused"
+              not_active: "cannot pause/resume a subscription which is not active"
+            state:
+              cannot_skip: cannot skip a subscription which is canceled or inactive
